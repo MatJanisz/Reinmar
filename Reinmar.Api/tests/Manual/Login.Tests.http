@@ -1,0 +1,22 @@
+POST http://localhost:5000/api/Account/LogIn
+Content-Type: application/json
+
+{
+    "Login":"admin",
+    "Password":"admin123."
+}
+
+ 
+GET http://localhost:5000/api/User/GetAll
+Authorization: bearer token
+
+
+POST http://localhost:5000/api/User/Create
+Content-Type: application/json
+
+{
+  "name": "admin",
+  "surname": "admin",
+  "domain": "admin",
+  "password": "admin123.",
+}

@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  mssql:
+    image: microsoft/mssql-server-linux
+    networks: 
+      - reinmar-net
+    ports:
+      - '1433:1433'
+    environment:
+      SA_PASSWORD: "Reinmar123!."
+      ACCEPT_EULA: "Y"
+
+  reinmar-api:
+    build:
+      context: ./Reinmar.Api
+      dockerfile: Dockerfile
+    networks:
+      - reinmar-net
+    ports:
+      - '5001:5000'
+
+networks: 
+  reinmar-net:
+    driver: bridge
