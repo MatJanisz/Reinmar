@@ -22,17 +22,16 @@
     "@ngrx/effects": "^7.2.0",
     "@ngrx/store": "^7.2.0",
     "@ngrx/store-devtools": "^7.2.0",
-    "ngx-clipboard": "^11.1.1",
-    "ngx-snackbar": "^1.2.0-rc.2",
     "rxjs": "^6.4.0",
     "core-js": "^2.5.4",
     "ramda": "^0.26.1",
     "tslib": "^1.9.0",
     "semantic-ui-css": "^2.3.1",
-    "zone.js": "^0.8.29"
+    "zone.js": "^0.8.29",
+    "less": "2.3.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.12.0",
+    "@angular-devkit/build-angular": "~0.10.0",
     "@angular/cli": "~7.2.3",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
@@ -50,6 +49,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "webpack": "~3.0.0"
   }
 }
