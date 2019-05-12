@@ -1,0 +1,56 @@
+<div class="field">
+    <div *ngIf="addInprogress" class="ui active inverted dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+    <h4 class="ui dividing header">We just need some information</h4>
+    <div class="two fields">
+        <div class="field">
+            <div class="field">
+                <label>Full Name</label>
+                <input placeholder="Your Full Name" [ngClass]="{'border-coloring': waitIsEmpty.Name }" [(ngModel)]="package.FullName" (ngModelChange)="onPackageChange()">
+            </div>
+            <div class="field">
+                <label>Your Email</label>
+                <input placeholder="Your Email" [ngClass]="{'border-coloring': waitIsEmpty.Email }" [(ngModel)]="package.Email" (ngModelChange)="onPackageChange()">
+            </div>
+            <div class="field">
+                <label>Phone Number</label>
+                <input placeholder="Your Phone Number" [ngClass]="{'border-coloring': waitIsEmpty.PhoneNumber }" [(ngModel)]="package.PhoneNumber"
+                    (ngModelChange)="onPackageChange()">
+            </div>
+            <div class="field">
+                <label>Street Name</label>
+                <input placeholder="Street Name" [ngClass]="{'border-coloring': waitIsEmpty.StreetName }" [(ngModel)]="package.StreetName"
+                    (ngModelChange)="onPackageChange()">
+            </div>
+            <div class="field">
+                <label>House Number</label>
+                <input placeholder="House Number" [ngClass]="{'border-coloring': waitIsEmpty.House }" [(ngModel)]="package.HouseNumber" (ngModelChange)="onPackageChange()">
+            </div>
+        </div>
+
+        <div class="field">
+                <div class="field">
+                        <label>City</label>
+                        <input placeholder="City" [ngClass]="{'border-coloring': waitIsEmpty.City }" [(ngModel)]="package.City" (ngModelChange)="onPackageChange()">
+                    </div>
+            <div class="field">
+                <label>Notes</label>
+                <input placeholder="Notes" [ngClass]="{'border-coloring': waitIsEmpty.Notes }" [(ngModel)]="package.Notes" (ngModelChange)="onPackageChange()">
+            </div>
+            <div class="field">
+                <label>Cash On Delivery</label>
+                <select class="ui dropdown" [ngClass]="{'border-coloring': waitIsEmpty.CashOnDelivery }" [(ngModel)]="package.CashOnDelivery"
+                    (ngModelChange)="onPackageChange()">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Order Name</label>
+                <input placeholder="Order Name" [ngClass]="{'border-coloring': waitIsEmpty.OrderName }" [(ngModel)]="package.OrderName" (ngModelChange)="onPackageChange()">
+            </div>
+            
+        </div>
+    </div>
+</div>

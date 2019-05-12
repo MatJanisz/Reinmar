@@ -1,0 +1,35 @@
+<h3 class="header-of-options">TRACK YOUR PACKAGE</h3>
+<form *ngIf="!showDetails" class="ui form">
+    <h4 class="ui dividing header">Packages</h4>
+    <div class="field">
+        <label>We just need your package ID:</label>
+    </div>
+        <div class="field">
+            <input placeholder="Package ID" autofocus="" #orderName>
+        </div>
+    <div class="ui button black button-tracking" tabindex="0" (click)="onTrackDownClick(orderName.value)">Track it down</div>
+</form>
+
+<div *ngIf="showDetails">
+<table class="ui grey table">
+    <thead>
+      <tr><th>Location</th>
+      <th>{{ packageinformation.Location }}</th>
+    </tr></thead><tbody>
+      <tr>
+        <td>Status</td>
+        <td>{{ packageinformation.Event }}</td>
+      </tr>
+      <tr>
+        <td>Notes</td>
+        <td>{{ packageinformation.Notes }}</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td>{{ packageinformation.Date | date: 'fullDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="ui button black button-tracking" tabindex="0" (click)="findAnotherPack()">Find another one</div>
+</div>
+
