@@ -1,0 +1,23 @@
+<h2 class="ui black image header">Please, sing in</h2>
+<form class="ui large form">
+  <div class="ui segment">
+    <div *ngIf="waitingForResponse" class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
+    <div class="field">
+      <div class="ui left icon ipnut">
+        <i class="user icon"></i>
+        <input (keyup.enter)="loginIn(username.value, password.value)" [ngClass]="{'border-coloring': failedLoggin }" name="username"
+          placeholder="Username" type="text" autofocus="" #username>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon ipnut">
+        <i class="lock icon"></i>
+        <input (keyup.enter)="loginIn(username.value, password.value)" [ngClass]="{'border-coloring': failedLoggin }" name="password"
+          placeholder="Password" type="password" #password>
+      </div>
+    </div>
+    <div (click)="loginIn(username.value, password.value)" class="ui fluid large green submit button">Login</div>
+  </div>
+</form>

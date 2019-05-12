@@ -1,0 +1,24 @@
+.wrapper {
+    background-image: url("../../assets/3.jpg");
+    height: 100%;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(5,minmax(1rem, auto));
+    
+    .pack-menu {
+        grid-column-start: 4;
+        grid-column-end: 8;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .actual-option {
+        grid-column-start: 4;
+        grid-column-end: 8;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+}
+
+

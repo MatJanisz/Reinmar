@@ -1,0 +1,21 @@
+<div class="wrapper">
+<div class="ui secondary pointing menu pack-menu">
+  <a routerLink='track-package' class="item" routerLinkActive="active">
+      Track package
+  </a>
+  <a routerLink='add-package' class="item" routerLinkActive="active">
+      Add package
+  </a>
+  <!-- <a routerLink='edit-package' class="item" routerLinkActive="active">
+      Edit package
+  </a> -->
+  <div class="right menu">
+      <a (click)="logOut()" class="item item-logged-out">
+          Log out
+    </a>
+  </div>
+</div>
+<div class="ui segment actual-option">
+    <router-outlet></router-outlet>
+</div>
+</div>
