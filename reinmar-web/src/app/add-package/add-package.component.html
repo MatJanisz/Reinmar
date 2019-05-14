@@ -1,16 +1,28 @@
-<h3 class="header-of-options">ADD NEW PACKAGE</h3>
+<h2  class="h1 h1-responsive font-bold wow fadeInLeft header-custom" >Add new package</h2>
+<div *ngIf="loadingSuccess" class="alert alert-success" role="alert">
+        Package was added successfully!
+        <h2  class="h4 font-bold " >Your package id: {{actualSitID}}</h2>
+      </div>
+
 <form class="ui form">
-    <h4 class="ui dividing header">Packages</h4>
     <div class="ui segment">
-        <app-waybill-header-form [waitIsEmpty]="waitIsEmpty" [addInprogress]="addInprogress" (packageToAdd)="updatePackageToAdd($event)"></app-waybill-header-form>
+        <app-waybill-header-form [waitIsEmpty]="waitIsEmpty" [addInprogress]="loadingSuccess" (packageToAdd)="updatePackageToAdd($event)"></app-waybill-header-form>
+        
         <!-- <ngx-snackbar class="message-add" [position]="'top-right'" [max]="3"></ngx-snackbar> -->
     </div>
-    <div (click)="addPackage()" class="ui button black" tabindex="0" >Add new package</div>
-    <div class="ui action input copy-id">
+
+
+    <!-- <div (click)="addPackage()" class="ui button black" tabindex="0" >Add new package</div> -->
+    <!-- <div class="ui action input copy-id">
         <input type="text"  [(ngModel)]="actualSitID" name="sitId" placeholder="Your package id">
-        <!-- <button ngxClipboard [cbContent]="actualSitID" class="ui teal right labeled icon button">
+         <button ngxClipboard [cbContent]="actualSitID" class="ui teal right labeled icon button">
           <i class="copy icon"></i>
           Copy
-        </button> -->
-      </div>
+        </button>
+      </div> -->
 </form>
+
+<div class="text-center">
+        <button  mdbBtn color="indigo" class="waves-light" (click)="addPackage()" mdbWavesEffect>Add new package</button>
+        <hr class="hr-light mb-3 mt-4">
+      </div>

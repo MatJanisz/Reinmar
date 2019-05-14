@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { WaybillBody, WaybillHeaders } from '../waybill-header';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { WaybillBody, WaybillHeaders } from '../models/waybill-header';
 import { WaybillHeaderFormComponent } from '../waybill-header-form/waybill-header-form.component';
 import { WaybillService } from '../services/waybill.service';
 import { PackageService } from '../services/packages.service';
@@ -11,8 +11,9 @@ import { PackageService } from '../services/packages.service';
 })
 export class AddPackageComponent {
 
-  addInprogress: boolean = false;
-  actualSitID: string = "";
+
+  loadingSuccess: boolean = false;
+  actualSitID: number;
 
   pallet: WaybillBody = {
     SitId: 0,
@@ -29,7 +30,7 @@ export class AddPackageComponent {
       {
         id: 0,
         Location: "",
-        Event: "",
+        Event: "Not delivered",
         DateFrom: new Date(Date.now())
       }
     ]
@@ -48,7 +49,7 @@ export class AddPackageComponent {
     CashOnDelivery: false,
     OrderName: false
   };
-
+ 
 
   constructor(
     private _waybillService: WaybillService,
@@ -107,15 +108,15 @@ export class AddPackageComponent {
 
 
       if (this.canAdd == true) {
-        this.addInprogress = true;
-        // this.pallet.Status[0].Location = this.ourSinglePack.City;
-        // this.pallet.Status[0].Event = "on way";
+        this.loadingSuccess = false;
+        this.pallet.Status[0].Location = this.ourSinglePack.City;
+        this.pallet.Status[0].Event = "On way";
         this._waybillService.createWaybillHeader(this.pallet).subscribe((data) => {
-          this.addInprogress = false;
+          this.loadingSuccess = true;
 
-          let resSTR = JSON.stringify(data);
-          let resJSON = JSON.parse(resSTR);
-          this.actualSitID = JSON.parse(resJSON._body).SitId;
+          // let resSTR = JSON.stringify(data);
+          // let resJSON = this.pallet;
+          this.actualSitID = data.SitId;
 
           // this.snackbarService.add({
           //   msg: '<strong>Package added.</strong>',
@@ -131,11 +132,11 @@ export class AddPackageComponent {
           //   }
           // });
         },
-          (err) => { this.addInprogress = false; }
+          (err) => { this.loadingSuccess = false; }
         );
       }
       else {
-        this.addInprogress = false;
+        this.loadingSuccess = false;
         this.waitIsEmpty.OrderName = true;
       }
       this.canAdd = true;

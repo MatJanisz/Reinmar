@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+//ui components
+import { ButtonsModule, WavesModule, IconsModule, NavbarModule, MDBBootstrapModule } from 'angular-bootstrap-md'
 
 // components
 import { AppComponent } from './app.component';
@@ -48,6 +50,8 @@ import { PackageService } from './services/packages.service';
     BrowserModule,
     routingModule,
     HttpClientModule,
+    
+    MDBBootstrapModule.forRoot(),
     // ClipboardModule,
     // SnackbarModule.forRoot(),
     StoreModule.forRoot(

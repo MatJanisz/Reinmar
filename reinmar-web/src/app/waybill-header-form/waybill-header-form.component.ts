@@ -1,11 +1,11 @@
-import { Component, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnChanges, ViewChild, ElementRef } from '@angular/core';
 
-import { WaybillHeaders } from '../waybill-header';
+import { WaybillHeaders } from '../models/waybill-header';
 
 @Component({
   selector: 'app-waybill-header-form',
   templateUrl: './waybill-header-form.component.html',
-  styleUrls: ['./waybill-header-form.component.css']
+  styleUrls: ['./waybill-header-form.component.scss']
 })
 export class WaybillHeaderFormComponent implements OnChanges {
 
@@ -40,21 +40,31 @@ export class WaybillHeaderFormComponent implements OnChanges {
     OrderName: false
   };
 
+
+
+  @ViewChild("editForm") editForm: ElementRef;
+
+  ngOnInit(): void {
+    console.log(this.editForm)
+    this.editForm.nativeElement.focus();
+  }
+
   constructor() { }
 
   ngOnChanges(): void {
-    // if (this.addInprogress == true) {
-    //   this.package.FullName = "";
-    //   this.package.Email = "";
-    //   this.package.PhoneNumber = "";
-    //   this.package.StreetName = "";
-    //   this.package.HouseNumber = "";
-    //   this.package.City = "";
-    //   this.package.PostalCode = "";
-    //   this.package.InvoiceId = "";
-    //   this.package.Notes = "";
-    //   this.package.OrderName = "";
-    // }
+    if (this.addInprogress == true) {
+      console.log(this.addInprogress)
+      this.package.FullName = "";
+      this.package.Email = "";
+      this.package.PhoneNumber = "";
+      this.package.StreetName = "";
+      this.package.HouseNumber = "";
+      this.package.City = "";
+      this.package.PostalCode = "";
+      this.package.InvoiceId = "";
+      this.package.Notes = "";
+      this.package.OrderName = "";
+    }
   }
   
   onPackageChange(){

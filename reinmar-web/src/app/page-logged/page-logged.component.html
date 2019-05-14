@@ -1,21 +1,54 @@
-<div class="wrapper">
-<div class="ui secondary pointing menu pack-menu">
-  <a routerLink='track-package' class="item" routerLinkActive="active">
-      Track package
-  </a>
-  <a routerLink='add-package' class="item" routerLinkActive="active">
-      Add package
-  </a>
-  <!-- <a routerLink='edit-package' class="item" routerLinkActive="active">
-      Edit package
-  </a> -->
-  <div class="right menu">
-      <a (click)="logOut()" class="item item-logged-out">
-          Log out
-    </a>
-  </div>
-</div>
-<div class="ui segment actual-option">
-    <router-outlet></router-outlet>
-</div>
+<header class="intro-header">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>REINMAR</strong></a>
+        </mdb-navbar-brand>
+        <!-- <links> -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" href="track-package"> Track package</a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" href="add-package"> Add package </a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" (click)="logOut()"> Log out </a>
+            </li>
+        </ul>
+        <!-- </links> -->
+    </mdb-navbar>
+    <section class="view intro-2">
+        <div class="full-bg-img mask rgba-gradient">
+            <div class="container flex-center">
+                <div class="d-flex align-items-center content-height w-100">
+                    <div class="row flex-center pt-5 mt-3 w-100">
+                        <div class="col-md-5 text-center text-md-left mb-5 ">
+                            <div class="white-text">
+                                <h4 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s">Welcome to
+                                    Reinmar.</h4>
+                                <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                                <h6 class="wow fadeInLeft" data-wow-delay="0.3s">
+                                    Track all your packages. Fast and easy!
+                                </h6>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="container flex-center">
+    <div class="d-flex align-items-center content-height w-100">
+        <div class="row flex-center  w-100">
+            <div class="col-md-6 text-center mb-5" style="margin-top: 5%">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
 </div>

@@ -22,9 +22,20 @@
               "src/web.config"
             ],
             "styles": [
-              "src/styles.css"
+
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "src/styles.scss"
             ],
             "scripts": [
+
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/hammerjs/hammer.min.js",
               "node_modules/jquery/dist/jquery.min.js"
             ]
           },
@@ -73,11 +84,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/hammerjs/hammer.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/semantic-ui-css/semantic.min.js"
             ],
             "styles": [
-              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+              "src/styles.scss",
               "node_modules/semantic-ui-css/semantic.css",
               "node_modules/ngx-snackbar/bundles/style.css"
             ],
@@ -132,7 +151,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

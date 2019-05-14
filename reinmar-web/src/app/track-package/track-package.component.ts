@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { PackageService } from '../services/packages.service';
 
 @Component({
@@ -6,11 +6,16 @@ import { PackageService } from '../services/packages.service';
   templateUrl: './track-package.component.html',
   styleUrls: ['./track-package.component.scss']
 })
-export class TrackPackageComponent  {
+export class TrackPackageComponent implements OnInit {
 
   constructor(private _packagesService: PackageService){}
 
   showDetails: boolean = false;
+
+  packageId: string;
+
+
+  @ViewChild("idinput") idInput: ElementRef;
 
   packageinformation = {
     Location: "",
@@ -18,6 +23,17 @@ export class TrackPackageComponent  {
     Notes: "",
     Date: ""
   }
+  ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit() {
+    console.log("afterinit");
+    setTimeout(() => {
+      console.log(this.idInput.nativeElement.focus());
+    }, 1000);
+  }
+
 
   onTrackDownClick(sitId:string) {
     this._packagesService.trackPackage(sitId).subscribe((pack)=>{

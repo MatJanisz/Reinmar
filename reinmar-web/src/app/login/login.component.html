@@ -1,23 +1,32 @@
-<h2 class="ui black image header">Please, sing in</h2>
-<form class="ui large form">
-  <div class="ui segment">
-    <div *ngIf="waitingForResponse" class="ui active inverted dimmer">
-      <div class="ui text loader">Loading</div>
+
+ <div  class=" wow fadeInRight" data-wow-delay="0.3s">
+  <div class="card-body">
+    <!--Header-->
+    <div class="text-center">
+      <h3 class="white-text"><i class="fas fa-user white-text"></i> Sign in</h3>
+      <hr class="hr-light">
     </div>
-    <div class="field">
-      <div class="ui left icon ipnut">
-        <i class="user icon"></i>
-        <input (keyup.enter)="loginIn(username.value, password.value)" [ngClass]="{'border-coloring': failedLoggin }" name="username"
-          placeholder="Username" type="text" autofocus="" #username>
-      </div>
+
+    <!--Body-->
+    <div class="md-form">
+      <i class="fas fa-user prefix white-text"></i>
+      <input (keyup.enter)="loginIn(username.value, password.value)" #username type="text" id="form3" class="form-control white-text" mdbInput>
+      <label for="form3">User name</label>
     </div>
-    <div class="field">
-      <div class="ui left icon ipnut">
-        <i class="lock icon"></i>
-        <input (keyup.enter)="loginIn(username.value, password.value)" [ngClass]="{'border-coloring': failedLoggin }" name="password"
-          placeholder="Password" type="password" #password>
-      </div>
+    <div class="md-form">
+      <i class="fas fa-envelope prefix white-text"></i>
+      <input (keyup.enter)="loginIn(username.value, password.value)" #password type="password" id="form2" class="form-control white-text" mdbInput>
+      <label for="form2">Password</label>
     </div>
-    <div (click)="loginIn(username.value, password.value)" class="ui fluid large green submit button">Login</div>
+    <p style="font-size: small; color: rgb(250, 128, 128); text-align: center" *ngIf="failedLoggin">The username or password is incorrect</p>
+
+
+
+
+    <div class="text-center">
+      <button mdbBtn color="indigo" class="waves-light" (click)="loginIn(username.value, password.value)" mdbWavesEffect>Login</button>
+      <hr class="hr-light mb-3 mt-4">
+    </div>
+
   </div>
-</form>
+</div>

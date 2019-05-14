@@ -1,17 +1,22 @@
-<h3 class="header-of-options">TRACK YOUR PACKAGE</h3>
-<form *ngIf="!showDetails" class="ui form">
-    <h4 class="ui dividing header">Packages</h4>
-    <div class="field">
-        <label>We just need your package ID:</label>
-    </div>
-        <div class="field">
-            <input placeholder="Package ID" autofocus="" #orderName>
-        </div>
-    <div class="ui button black button-tracking" tabindex="0" (click)="onTrackDownClick(orderName.value)">Track it down</div>
-</form>
+<span *ngIf="!showDetails" >
+<h3  class="h3 h3-responsive font-bold wow fadeInLeft header-custom" >Enter your package ID:</h3>
 
+<div class="field">
+        <div class="md-form text-md-left ">
+
+            <input  [(ngModel)]="packageId" id="form1"  #idinput  class="form-control" type="text" mdbInput>
+            <label for="form1">package ID</label>
+            <div class="text-center">
+                <button  mdbBtn color="indigo" class="waves-light" (click)="onTrackDownClick(packageId)" mdbWavesEffect>Track it down</button>
+                <hr class="hr-light mb-3 mt-4">
+              </div>
+          </div>
+        </div>
+<!-- <div class="ui button black button-tracking" tabindex="0" (click)="onTrackDownClick(orderName.value)">Track it down</div> -->
+
+</span>
 <div *ngIf="showDetails">
-<table class="ui grey table">
+<table class="ui table">
     <thead>
       <tr><th>Location</th>
       <th>{{ packageinformation.Location }}</th>
@@ -30,6 +35,12 @@
       </tr>
     </tbody>
   </table>
-  <div class="ui button black button-tracking" tabindex="0" (click)="findAnotherPack()">Find another one</div>
+  <div class="md-form text-md-left ">
+      <div class="text-center">
+          <button  mdbBtn color="indigo" class="waves-light" (click)="findAnotherPack()" mdbWavesEffect>Find another one</button>
+          <hr class="hr-light mb-3 mt-4">
+        </div>
+    </div>
+
 </div>
 
