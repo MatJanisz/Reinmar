@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reinmar.View.PackageDetailsPage"
+             BackgroundImage="tlo.jpg">
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" >
+                <Label Text="DETAILS" TextColor="Black" FontSize="20" 
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="10,15,10,25" />
+                <!--<Label x:Name="CargoName" Text="CargoName" TextColor="Black" FontSize="15" 
+                       Margin="15,5" HorizontalOptions="Start" />-->
+                <!--<Label x:Name="Quantity" Text="Quantity" TextColor="Black"
+                       FontSize="15" Margin="15,5" HorizontalOptions="Start" />-->
+                <Label x:Name="FullName" Text="FullName" TextColor="Black"
+                       FontSize="15" Margin="15,5" HorizontalOptions="Start" />
+                <Label x:Name="StreetNameAndHouseNumber" Text="StreetName + HouseNumber" TextColor="Black"
+                       FontSize="15" Margin="15,5" HorizontalOptions="Start" />
+                <Label x:Name="City" Text="City" TextColor="Black"
+                       FontSize="15" Margin="15,5" HorizontalOptions="Start" />
+                <Label x:Name="PhoneNumber" Text="PhoneNumber" TextColor="Black"
+                       FontSize="15" Margin="15,5" HorizontalOptions="Start" />
+                <Label x:Name="Notes" Text="Notes" TextColor="Black"
+                       FontSize="15" Margin="15,5" HorizontalOptions="Start" />
+            </StackLayout>
+            
+
+            <Button Text="Change package status" Grid.Row="3" TextColor="White" BackgroundColor="Green" 
+                FontSize="15" FontAttributes="Bold" HeightRequest="35" WidthRequest="10" 
+                BorderRadius="20" Margin="10,10,10,10" Clicked="ButtonChangeStatusClicked"/>
+
+            <Button Text="Find another package" Grid.Row="4" TextColor="White" BackgroundColor="Blue" 
+                FontSize="15" FontAttributes="Bold" HeightRequest="35" WidthRequest="10" 
+                BorderRadius="20" Margin="10,10,10,40" Clicked="ButtonFindPackageClicked"/>
+
+            <StackLayout Grid.Row="5" >
+                <Label Text="Made with love by the Reinmar team" 
+                   TextColor="Black" FontSize="10" HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="10,10,10,10"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

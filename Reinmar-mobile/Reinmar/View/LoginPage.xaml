@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Reinmar.ViewModel"
+             x:Class="Reinmar.View.LoginPage"
+             BackgroundImage="tlo.jpg">
+
+    <!--xmlns:local="clr-namespace:Reinmar.View"-->
+
+    <!--<ContentPage.BindingContext>
+        <local:LoginViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+       <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" >
+                <Label Text="Authorize yourself!" TextColor="Black" FontSize="20" 
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="10,15,10,25" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <Entry x:Name="login" Placeholder="Login" Margin="10,0,10,0" Keyboard="Url" >
+                    <!--<Entry.Behaviors>
+                        <local:EmailValidatorBehavior x:Name="emailValidator"/>
+                    </Entry.Behaviors>-->
+                </Entry>
+
+                <Entry x:Name="password" Placeholder="Password" IsPassword="true" Margin="10,0,10,0"/>
+            </StackLayout>
+
+            <Button Text="Log In" Grid.Row="2" TextColor="White" BackgroundColor="Blue" 
+                FontSize="15" FontAttributes="Bold" HeightRequest="35" WidthRequest="10" 
+                BorderRadius="20" Margin="10,40,10,40" Clicked="ButtonLogInClicked"/>
+
+            <StackLayout Grid.Row="4" >
+                <Label Text="Made with love by the Reinmar team" 
+                   TextColor="Black" FontSize="10" HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="10,10,10,10"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
