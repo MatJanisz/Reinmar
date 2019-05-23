@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190521193911_AddedForeignKeyToStatusesTable.cs" />
+    <Compile Remove="Migrations\20190521204927_test.cs" />
+    <Compile Remove="Migrations\20190521205119_test.cs" />
+    <Compile Remove="Migrations\20190521205204_test.cs" />
+    <Compile Remove="Migrations\20190521205547_test.cs" />
+    <Compile Remove="Migrations\20190521205707_test.cs" />
+    <Compile Remove="Migrations\20190521205914_test.cs" />
+    <Compile Remove="Migrations\20190521210124_DatabaseRefactorization.cs" />
+    <Compile Remove="Migrations\20190523163748_UpdatedStatuses.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+</Project>

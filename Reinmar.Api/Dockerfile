@@ -1,7 +1,8 @@
 
 FROM microsoft/dotnet:2.1-sdk as builder
 
-COPY ./src/Reinmar.Infrastructure/. /source/Reinmar.Infrastructure/
+COPY ./src/Reinmar.DA/. /source/Reinmar.DA/
+COPY ./src/Reinmar.BL/. /source/Reinmar.BL/
 COPY ./src/Reinmar.Api/. /source/Reinmar.Api/
 
 WORKDIR /source/Reinmar.Api

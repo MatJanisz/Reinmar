@@ -1,62 +1,50 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Authorization;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Reinmar.Common.Entities;
-using Reinmar.Infrastructure.Services.Interfaces;
+using Reinmar.BL.Interfaces;
+using Reinmar.DA.Models;
 
 namespace Reinmar.Api.Controllers
 {
-    [EnableCors("AllowAll")]
-    [Authorize]
-    [Route("api/[controller]")]
-    public class UserController : Controller
+	[EnableCors("AllowAll")]
+	[Route("api/[controller]")]
+	public class UserController : Controller
     {
-        private IUserService _service;
-        public UserController(IUserService service)
-        {
-            _service = service;
-        }
-        [HttpPost]
-        [Route("[action]")]
-        public void Create([FromBody]User newUser)
-        {
-            _service.Create(newUser);
-        }
-        [HttpPost]
-        [Route("[action]")]
-        public void Delete([FromBody]User user)
-        {
-            _service.Delete(user);
-        }
+		private IUserService _userService;
+		public UserController(IUserService service)
+		{
+			_userService = service;
+		}
+		[HttpGet]
+		public IActionResult GetAll()
+		{
+			return Ok(_userService.GetAll());
+		}
+		[HttpPost]
+		public IActionResult Register([FromBody] User user)
+		{
+			if (_userService.Add(user))
+			{
+				return Ok();
+			}
+			return BadRequest();
+		}
+		[HttpPost("login")]
+		public IActionResult LogIn([FromBody] User user)
+		{
+			string q = user.Email;
+			string w = user.Password;
+			var token = _userService.LogIn(user.Email, user.Password);
+			if (token == null)
+			{
+				return Unauthorized();
+			}
+			return Ok(new { token = _userService.LogIn(user.Email, user.Password) });
 
-        [HttpGet]
-        [Route("[action]")]
-        public IEnumerable<User> GetAll()
-        {
-            return _service.GetAll();
-        }
-
-        [HttpPost]
-        [Route("[action]")]
-        public User GetByDomain([FromBody]string domain)
-        {
-            return _service.GetByDomain(domain);
-        }
-
-        [HttpPost]
-        [Route("[action]")]
-        public User GetById([FromBody]Guid id)
-        {
-            return _service.GetById(id);
-        }
-
-        [HttpPost]
-        [Route("[action]")]
-        public void Update([FromBody]User user)
-        {
-            _service.Update(user);
-        }
-    }
+		}
+	}
 }
