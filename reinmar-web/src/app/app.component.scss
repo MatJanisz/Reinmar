@@ -1,0 +1,41 @@
+.site-header {
+    height: 4em;
+    border-bottom: 2px solid #00000078;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.logo {           
+    
+    display: flex;
+
+    img {
+        width: 3em;
+        margin-left: 0.5em;
+    }
+    
+    div {
+        margin-top: 1.26rem;
+        margin-left: 0.7em;
+        font-weight: bold;
+        font-size: large;
+    }
+}
+
+.contact {
+    
+    display: flex;
+
+    span {
+        margin-top: 1.6rem;
+        margin-right: 1em;
+        font-weight: bold;
+    }
+
+    img {
+        width: 2.7em;
+        height: 2.1em;
+        margin-top: 1.2em;
+    }
+}
+

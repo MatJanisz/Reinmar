@@ -1,0 +1,46 @@
+<span *ngIf="!showDetails" >
+<h3  class="h3 h3-responsive font-bold wow fadeInLeft header-custom" >Enter your package ID:</h3>
+
+<div class="field">
+        <div class="md-form text-md-left ">
+
+            <input  [(ngModel)]="packageId" id="form1"  #idinput  class="form-control" type="text" mdbInput>
+            <label for="form1">package ID</label>
+            <div class="text-center">
+                <button  mdbBtn color="indigo" class="waves-light" (click)="onTrackDownClick(packageId)" mdbWavesEffect>Track it down</button>
+                <hr class="hr-light mb-3 mt-4">
+              </div>
+          </div>
+        </div>
+<!-- <div class="ui button black button-tracking" tabindex="0" (click)="onTrackDownClick(orderName.value)">Track it down</div> -->
+
+</span>
+<div *ngIf="showDetails">
+<table class="ui table">
+    <thead>
+      <tr><th>Location</th>
+      <th>{{ packageinformation.Location }}</th>
+    </tr></thead><tbody>
+      <tr>
+        <td>Status</td>
+        <td>{{ packageinformation.Event }}</td>
+      </tr>
+      <tr>
+        <td>Notes</td>
+        <td>{{ packageinformation.Notes }}</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td>{{ packageinformation.Date | date: 'fullDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="md-form text-md-left ">
+      <div class="text-center">
+          <button  mdbBtn color="indigo" class="waves-light" (click)="findAnotherPack()" mdbWavesEffect>Find another one</button>
+          <hr class="hr-light mb-3 mt-4">
+        </div>
+    </div>
+
+</div>
+

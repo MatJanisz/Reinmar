@@ -1,0 +1,71 @@
+
+// .wrapper {
+//     display: grid;
+//     background-image: url("../../assets/3.jpg");
+//     background-size: cover;
+//     height: 100%;
+//     width: 100%;
+//     grid-template-columns: repeat(10,1fr);
+//     grid-template-rows: repeat(10,minmax(3rem, auto));
+
+//     .description {
+//         grid-column-start: 2;
+//         grid-column-end: 6;
+//         grid-row-start: 4;
+//         grid-row-end: 5;
+//     }
+
+//     .login {
+//         grid-column-start: 7;
+//         grid-column-end: 10;
+//         grid-row-start: 4;
+//         grid-row-end: 5;
+//     }
+// }
+
+.intro-header {
+    height: unset !important;
+  }
+  .intro-2 {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ),url("https://bestcellphonespyapps.com/wp-content/uploads/2018/07/shutterstock_525154717.jpg")no-repeat center center;
+    background-size: cover;
+  }
+  .view {
+    height: 100vh !important;
+  }
+  .top-nav-collapse {
+    background-color: #3f51b5 !important;
+  }
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+  @media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #3f51b5 !important;
+    }
+  }
+  .rgba-gradient .full-bg-img {
+    background: linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
+  }
+  .card {
+    background-color: rgba(26, 26, 36, 0.479);
+  }
+  
+  .md-form .prefix {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  .md-form label {
+    color: #ffffff;
+  }
+  h6 {
+    line-height: 1.7;
+  }
+  @media (max-width: 740px) {
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+      height: 1040px;
+    }
+  }

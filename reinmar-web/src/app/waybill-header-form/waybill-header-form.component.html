@@ -1,0 +1,75 @@
+<div class="field">
+    <div *ngIf="addInprogress" class="ui active inverted dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+    <h4 class="ui dividing header header-custom">We just need some information</h4>
+    <div class="container center">
+        <div class="align-items-center content-height w-100">
+            <div class="row  pt-5 mt-3 w-100">
+                <div class="col-md-6 text-center text-md-left mb-5">
+                    <div class="md-form">
+                        <i class="fas fa-user prefix "></i>
+                        <input [(ngModel)]="package.FullName" #editForm (ngModelChange)="onPackageChange()" type="text"
+                            id="form1" class="form-control" mdbInput>
+                        <label for="form1">full name</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix "></i>
+                        <input [(ngModel)]="package.Email" (ngModelChange)="onPackageChange()" id="form2" type="text"
+                            class="form-control" mdbInput>
+                        <label for="form2">email</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-phone prefix "></i>
+                        <input type="text" [(ngModel)]="package.PhoneNumber" id="form3" (ngModelChange)="onPackageChange()"
+                            class="form-control" mdbInput>
+                        <label for="form3">phone number</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-info-circle prefix "></i>
+                        <input [(ngModel)]="package.Notes" (ngModelChange)="onPackageChange()" id="form4" type="text"
+                            class="form-control" mdbInput>
+                        <label for="form4">additional information</label>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-md-left mb-5">
+                    <div class="md-form">
+                        <i class="fas fa-road prefix"></i>
+                        <input [(ngModel)]="package.StreetName" id="form5" (ngModelChange)="onPackageChange()" type="text"
+                            class="form-control" mdbInput>
+                        <label for="form5">street name</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-home prefix"></i>
+                        <input type="text" [(ngModel)]="package.HouseNumber" id="form6" (ngModelChange)="onPackageChange()"
+                            class="form-control" mdbInput>
+                        <label for="form6">house number</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-city prefix "></i>
+                        <input [(ngModel)]="package.City" (ngModelChange)="onPackageChange()" id="form7" type="text"
+                            class="form-control" mdbInput>
+                        <label for="form7">city</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-box-open prefix "></i>
+                        <input [(ngModel)]="package.OrderName" (ngModelChange)="onPackageChange()" type="text" id="form9"
+                            class="form-control" mdbInput>
+                        <label for="form9">order name</label>
+                    </div>
+                    <!-- <div class="md-form">
+                            <div class="d-flex justify-content-around">
+                        <i class="fas fa-money-bill-alt prefix "></i>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+                            <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+                        </div>
+                        </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
