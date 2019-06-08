@@ -19,19 +19,15 @@
 <table class="ui table">
     <thead>
       <tr><th>Location</th>
-      <th>{{ packageinformation.Location }}</th>
+      <th>{{ packageinformation.location }}</th>
     </tr></thead><tbody>
       <tr>
         <td>Status</td>
-        <td>{{ packageinformation.Event }}</td>
-      </tr>
-      <tr>
-        <td>Notes</td>
-        <td>{{ packageinformation.Notes }}</td>
+        <td>{{ packageinformation.event }}</td>
       </tr>
       <tr>
         <td>Date</td>
-        <td>{{ packageinformation.Date | date: 'fullDate' }}</td>
+        <td>{{ packageinformation.date | date: 'fullDate' }}</td>
       </tr>
     </tbody>
   </table>

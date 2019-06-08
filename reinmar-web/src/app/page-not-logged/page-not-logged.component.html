@@ -30,7 +30,17 @@
 
             <div class="col-md-6 col-xl-5 offset-xl-1">
               <!--Form-->
-              <login-app></login-app>
+              <login-app *ngIf="!registrationMode"></login-app>
+              <app-registration *ngIf="registrationMode"></app-registration>
+              <div class="col-md-12 text-center mb-12">
+                <div class="white-text">
+                    <div *ngIf="!registrationMode">Don't have an account? <a><i (click)="switchToRegistration()">Create one.</i></a></div>
+                    <div *ngIf="registrationMode">Already have an account? <a><i (click)="switchToLogin()">Sign in</i></a></div>
+        
+                </div>
+              </div>
+
+
               <!--/.Form-->
             </div>
           </div>

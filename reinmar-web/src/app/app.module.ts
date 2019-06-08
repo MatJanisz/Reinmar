@@ -32,6 +32,7 @@ import { WaybillService } from './services/waybill.service';
 import { LogoutService } from './services/logout.service';
 import { LoginService } from './services/login.service';
 import { PackageService } from './services/packages.service';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PackageService } from './services/packages.service';
     TrackPackageComponent,
     AddPackageComponent,
     EditPackageComponent,
-    WaybillHeaderFormComponent
+    WaybillHeaderFormComponent,
+    RegistrationComponent
   ],
   imports: [
     FormsModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../services/logout.service';
 import { LoginService } from '../services/login.service';
-import { User } from '../models/user';
+
 
 @Component({
   selector: 'page-logged',

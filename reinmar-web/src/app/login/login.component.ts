@@ -15,7 +15,7 @@ export class LoginComponent {
 
   loginIn(login: string, password: string) {
     this.waitingForResponse = true;
-    this._loginService.logIn({ login, password }).subscribe(
+    this._loginService.logIn({email: login, password: password }).subscribe(
       (dane) => { this.waitingForResponse = false; },
       (err2) => { this.failedLoggin = true; this.waitingForResponse = false; }
     );

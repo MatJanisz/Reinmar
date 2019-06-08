@@ -4,17 +4,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { catchError, map, tap } from 'rxjs/operators';
+import { Package } from '../model/package';
 
 
 @Injectable()
 export class PackageService {
 
-    baseUrl: string = 'http://localhost:5001/api/WaybillBody/GetBySitId/';
+    baseUrl: string = 'http://localhost:5001/api/Package/GetBySitId/';
 
     constructor(public http: HttpClient) { }
 
 
-    trackPackage(sitId: string) {
+    trackPackage(sitId: string): Observable<Package> {
 
         const token = JSON.parse(localStorage.getItem('currentUser')).token;
 
@@ -23,10 +24,7 @@ export class PackageService {
             'Authorization': `Bearer ` + token.token
           })}
 
-        return this.http.get(this.baseUrl + sitId, httpOptions)
-            .pipe(map(result => {
-                return result;
-            }));
+        return this.http.get<Package>(this.baseUrl + sitId, httpOptions);
     }
 
 }

@@ -1,0 +1,42 @@
+
+ <div  class=" wow fadeInRight" data-wow-delay="0.3s">
+  <div class="card-body">
+    <!--Header-->
+    <div class="text-center">
+      <h3 class="white-text"><i class="fas fa-user white-text"></i> Register</h3>
+      <hr class="hr-light">
+    </div>
+
+    <!--Body-->
+    <div class="md-form">
+      <i class="fas fa-user prefix white-text"></i>
+      <input (keyup.enter)="loginIn(username.value, password.value)" #name type="text" id="form3" class="form-control white-text" mdbInput>
+      <label for="form3">Name</label>
+    </div>
+    <div class="md-form">
+      <i class="fas fa-user prefix white-text"></i>
+      <input (keyup.enter)="loginIn(username.value, password.value)" #surname type="text" id="form3" class="form-control white-text" mdbInput>
+      <label for="form3">Surname</label>
+    </div>
+    <div class="md-form">
+      <i class="fas fa-user prefix white-text"></i>
+      <input (keyup.enter)="loginIn(username.value, password.value)" #email type="text" id="form3" class="form-control white-text" mdbInput>
+      <label for="form3">Email</label>
+    </div>
+    <div class="md-form">
+      <i class="fas fa-envelope prefix white-text"></i>
+      <input (keyup.enter)="loginIn(username.value, password.value)" #password type="password" id="form2" class="form-control white-text" mdbInput>
+      <label for="form2">Password</label>
+    </div>
+    <p style="font-size: small; color: rgb(250, 128, 128); text-align: center" *ngIf="registrationFailed">Something went wrong or user already exist</p>
+
+
+
+
+    <div class="text-center">
+      <button mdbBtn color="indigo" class="waves-light" (click)="register(name.value, surname.value, email.value, password.value)" mdbWavesEffect>Register</button>
+      <hr class="hr-light mb-3 mt-4">
+    </div>
+
+  </div>
+</div>
