@@ -34,16 +34,16 @@ namespace Reinmar.Api.Controllers
         }
 
 		[HttpGet]
-		public IActionResult Get()
+		public IEnumerable<Package> Get()
 		{
 			var packages = _packageService.GetAll();
-			return Ok(_packageService.GetAll());
+			return _packageService.GetAll();
 		}
 
 		[HttpGet("GetBySitId/{sitId}")]
-		public IActionResult GetBySitId(string sitId)
+		public Package GetBySitId(string sitId)
 		{
-			return Ok(_packageService.GetBySidId(sitId));
+			return _packageService.GetBySidId(sitId);
 		}
 
 		[HttpPost("ChangeStatus/{sitId}")]
@@ -54,9 +54,9 @@ namespace Reinmar.Api.Controllers
 		}
 
 		[HttpGet("GetByLatestStatus/{sitId}")]
-		public IActionResult GetByLatestStatus(string sitId)
+		public Status GetByLatestStatus(string sitId)
 		{
-			return Ok(_packageService.GetLatestStatus(sitId));
+			return _packageService.GetLatestStatus(sitId);
 		}
 	}
 }

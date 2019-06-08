@@ -20,9 +20,9 @@ namespace Reinmar.Api.Controllers
 			_userService = service;
 		}
 		[HttpGet]
-		public IActionResult GetAll()
+		public IEnumerable<User> GetAll()
 		{
-			return Ok(_userService.GetAll());
+			return _userService.GetAll();
 		}
 		[HttpPost]
 		public IActionResult Register([FromBody] User user)
