@@ -16,6 +16,7 @@ using Reinmar.BL.Interfaces;
 using Reinmar.BL.Services;
 using Reinmar.DA.DataAccess;
 using Reinmar.DA.Helpers;
+using Reinmar.DA.Helpers.Interfaces;
 using Reinmar.DA.Interfaces;
 using Reinmar.DA.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
@@ -70,6 +71,7 @@ namespace Reinmar.Api
 			services.AddTransient<IPackageService, PackageService>();
 			services.AddTransient<IPackageRepository, PackageRepository>();
 			services.AddTransient<IPasswordHelper, PasswordHelper>();
+			services.AddTransient<IEmailHelper, EmailHelper>();
 
 			services.AddMvc();
 

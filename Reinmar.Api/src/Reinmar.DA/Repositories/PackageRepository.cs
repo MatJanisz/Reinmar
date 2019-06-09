@@ -6,15 +6,18 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Reinmar.DA.Helpers.Interfaces;
 
 namespace Reinmar.DA.Repositories
 {
 	public class PackageRepository : IPackageRepository
 	{
 		private ReinmarDbContext _context;
-		public PackageRepository(ReinmarDbContext context)
+		private IEmailHelper _emailHelper;
+		public PackageRepository(ReinmarDbContext context, IEmailHelper emailHelper)
 		{
 			_context = context;
+			_emailHelper = emailHelper;
 			_context.Database.EnsureCreated();
 		}
 		public void Add(Package package, string senderEmail)
@@ -41,6 +44,7 @@ namespace Reinmar.DA.Repositories
 			var newStatus = new Status(status.Location, status.Event);
 			package.Statuses.Add(newStatus);
 			_context.SaveChanges();
+			_emailHelper.SendEmail(package.ReceiverEmail, package.OrderName, status.Event + ", " + status.Location);
 		}
 
 		public Status GetLatestStatus(string sitId)
