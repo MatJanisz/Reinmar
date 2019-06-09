@@ -36,7 +36,7 @@ namespace Reinmar.Api
 		{
 			services.AddCors(options =>
 			{
-				options.AddPolicy("CorsPolicy",
+				options.AddPolicy("AllowAll",
 					builder => builder.AllowAnyOrigin()
 						.AllowAnyMethod()
 						.AllowAnyHeader()
