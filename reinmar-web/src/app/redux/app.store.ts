@@ -1,4 +1,5 @@
-import { User } from "../models/user";
+import { User } from "../model/user";
+
 
 export interface State {
   app: AppState;
@@ -11,5 +12,5 @@ export interface AppState {
 
 export const intitialState: AppState = {
     authenticated: false,
-    user: {}
+    user: {email: "", password: "", name: "", surname: ""}
 };

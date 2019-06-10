@@ -1,9 +1,10 @@
 import { Component, Output, EventEmitter, Input, OnChanges, ViewChild, ElementRef } from '@angular/core';
 
-import { WaybillHeaders } from '../models/waybill-header';
+import { Package } from '../model/package';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-waybill-header-form',
+  selector: 'app-add-package-form',
   templateUrl: './waybill-header-form.component.html',
   styleUrls: ['./waybill-header-form.component.scss']
 })
@@ -12,62 +13,55 @@ export class WaybillHeaderFormComponent implements OnChanges {
 
   @Input() addInprogress: boolean;
 
-  @Output() packageToAdd = new EventEmitter();
-  package: WaybillHeaders = {
-    SitId:0,
-    FullName : "",
-    Email : "",
-    PhoneNumber:"",
-    StreetName:"",
-    HouseNumber:"",
-    City :"",
-    PostalCode:"",
-    InvoiceId:"",
-    Date: new Date(Date.now()),
-    Notes:"",
-    CashOnDelivery: 0,
-    OrderName:""
-  };
+  @Output() packageToAdd: EventEmitter<Package> = new EventEmitter();
+  package: Package;
 
   @Input() waitIsEmpty = {
-    Name: false,
-    Surname: false,
-    Street: false,
-    House: false,
-    City: false,
-    Notes: false,
-    CashOrDelivery: false,
-    OrderName: false
   };
 
+  @ViewChild("input1") idInput: ElementRef;
+
+  editForm: FormGroup;
 
 
-  @ViewChild("editForm") editForm: ElementRef;
+  
 
   ngOnInit(): void {
-    console.log(this.editForm)
-    this.editForm.nativeElement.focus();
+    console.log(this.idInput)
+    this.idInput.nativeElement.focus();
+    this.editForm = new FormGroup({
+      receiverFullName: new FormControl('', Validators.required),
+      phoneNumber: new FormControl('', Validators.required),
+      country: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      postalCode: new FormControl('', Validators.required),
+      streetName: new FormControl('', Validators.required),
+      notes: new FormControl(''),
+      houseNumber: new FormControl('', Validators.required),
+      cashOnDelivery: new FormControl(''),
+      orderName: new FormControl('', Validators.required)
+    })
   }
 
   constructor() { }
 
   ngOnChanges(): void {
-    if (this.addInprogress == true) {
-      console.log(this.addInprogress)
-      this.package.FullName = "";
-      this.package.Email = "";
-      this.package.PhoneNumber = "";
-      this.package.StreetName = "";
-      this.package.HouseNumber = "";
-      this.package.City = "";
-      this.package.PostalCode = "";
-      this.package.InvoiceId = "";
-      this.package.Notes = "";
-      this.package.OrderName = "";
-    }
   }
   
-  onPackageChange(){
-    this.packageToAdd.emit(this.package);
+  onPackageAdd(){
+    this.packageToAdd.emit({
+      receiverFullName: this.editForm.controls["receiverFullName"].value,
+      phoneNumber: this.editForm.controls["phoneNumber"].value,
+      country: this.editForm.controls["country"].value,
+      city: this.editForm.controls["city"].value,
+      postalCode: this.editForm.controls["postalCode"].value,
+      streetName: this.editForm.controls["streetName"].value,
+      notes: this.editForm.controls["notes"].value,
+      houseNumber: this.editForm.controls["houseNumber"].value,
+      orderName: this.editForm.controls["orderName"].value,
+      cashOnDelivery: 1,
+      statuses: [{location:  this.editForm.controls["city"].value,
+      event: "Not delivered"}]
+    });
   }
 }

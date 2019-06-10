@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-not-logged.component.scss']
 })
 export class PageNotLoggedComponent {
+
+
+  registrationMode = false;
+
+  public switchToLogin(){
+    this.registrationMode=false;
+  }
+
+  public switchToRegistration(){
+    this.registrationMode = true;
+  }
 }

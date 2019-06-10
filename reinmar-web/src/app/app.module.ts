@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //ui components
@@ -32,6 +32,8 @@ import { WaybillService } from './services/waybill.service';
 import { LogoutService } from './services/logout.service';
 import { LoginService } from './services/login.service';
 import { PackageService } from './services/packages.service';
+import { RegistrationComponent } from './registration/registration.component';
+import { PackageHistoryComponent } from './package-history/package-history.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +45,13 @@ import { PackageService } from './services/packages.service';
     TrackPackageComponent,
     AddPackageComponent,
     EditPackageComponent,
-    WaybillHeaderFormComponent
+    WaybillHeaderFormComponent,
+    RegistrationComponent,
+    PackageHistoryComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     routingModule,
     HttpClientModule,
