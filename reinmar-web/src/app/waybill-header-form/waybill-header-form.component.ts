@@ -37,7 +37,8 @@ export class WaybillHeaderFormComponent implements OnChanges {
       notes: new FormControl(''),
       houseNumber: new FormControl('', Validators.required),
       cashOnDelivery: new FormControl(''),
-      orderName: new FormControl('', Validators.required)
+      orderName: new FormControl('', Validators.required),
+      receiverEmail: new FormControl('', Validators.required)
     })
   }
 
@@ -58,6 +59,7 @@ export class WaybillHeaderFormComponent implements OnChanges {
       notes: this.editForm.controls["notes"].value,
       houseNumber: this.editForm.controls["houseNumber"].value,
       orderName: this.editForm.controls["orderName"].value,
+      receiverEmail: this.editForm.controls["receiverEmail"].value,
       cashOnDelivery: 1,
       statuses: [{location:  this.editForm.controls["city"].value,
       event: "Not delivered"}]
