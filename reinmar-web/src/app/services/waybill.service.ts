@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { State } from '../redux/app.store';
-import { WaybillBody, WaybillHeaders } from '../models/waybill-header';
 import { Observable, of } from 'rxjs';
+import { WaybillBody, WaybillHeaders } from '../model/waybill-header';
 
 
 @Injectable()

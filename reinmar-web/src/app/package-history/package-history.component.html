@@ -1,0 +1,22 @@
+<table class="ui table">
+  <thead>
+  <tr>
+        <th>ID</th>
+        <th>Location</th> 
+        <th>Status</th>
+        <th>Date</th>
+        <th>Notes</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let package of userPackages">
+        <td>{{package.sitId}}</td>
+        <td>{{package.location}}</td>
+        <td>{{package.status}}</td>
+        <td>{{package.date | date:'dd/MM/yyyy'}}</td>
+        <td>{{package.notes}}</td>
+        <td>{{package.address}}</td>
+      </tr>
+    </tbody>
+  </table>

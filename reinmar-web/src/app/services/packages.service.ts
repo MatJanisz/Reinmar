@@ -10,21 +10,43 @@ import { Package } from '../model/package';
 @Injectable()
 export class PackageService {
 
-    baseUrl: string = 'http://localhost:5001/api/Package/GetBySitId/';
+    baseUrl: string = 'http://localhost:5001/api/Package/';
 
     constructor(public http: HttpClient) { }
+
+    getSessionToken(){
+        return JSON.parse(localStorage.getItem('currentUser')).token;
+    }
 
 
     trackPackage(sitId: string): Observable<Package> {
 
-        const token = JSON.parse(localStorage.getItem('currentUser')).token;
-
         const httpOptions = { headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': `Bearer ` + token.token
+            'Authorization': `Bearer ` + this.getSessionToken()
           })}
 
-        return this.http.get<Package>(this.baseUrl + sitId, httpOptions);
+        return this.http.post<Package>(this.baseUrl + sitId, httpOptions);
+    }
+
+    addPackage(newPackage: Package) {
+        const httpOptions = { headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Authorization': `Bearer ` + this.getSessionToken()
+          })}
+
+          console.log(httpOptions)
+        return this.http.post<Package>(this.baseUrl, newPackage, httpOptions);
+    }
+
+    getPackageHistory(): Observable<Package[]>{
+        const httpOptions = { headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Authorization': `Bearer ` + this.getSessionToken()
+          })}
+
+          console.log(httpOptions)
+        return this.http.get<Package[]>(this.baseUrl, httpOptions);
     }
 
 }

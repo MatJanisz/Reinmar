@@ -25,7 +25,7 @@ export const userReducer: ActionReducer<AppState> =
       case INITIAL_STATE: {
         let user = JSON.parse(localStorage.getItem("currentUser"));
         return Object.assign({}, state, { 
-          user: user? user.name : null,
+          user: user? user.email : null,
           authenticated: user ? true : false
         });
       }

@@ -4,10 +4,9 @@
         <h2  class="h4 font-bold " >Your package id: {{actualSitID}}</h2>
       </div>
 
-<form class="ui form">
+<div class="ui form">
     <div class="ui segment">
-        <app-waybill-header-form [waitIsEmpty]="waitIsEmpty" [addInprogress]="loadingSuccess" (packageToAdd)="updatePackageToAdd($event)"></app-waybill-header-form>
-        
+        <app-add-package-form [waitIsEmpty]="waitIsEmpty" [addInprogress]="loadingSuccess" (packageToAdd)="addPackage($event)"></app-add-package-form>
         <!-- <ngx-snackbar class="message-add" [position]="'top-right'" [max]="3"></ngx-snackbar> -->
     </div>
 
@@ -20,9 +19,4 @@
           Copy
         </button>
       </div> -->
-</form>
-
-<div class="text-center">
-        <button  mdbBtn color="indigo" class="waves-light" (click)="addPackage()" mdbWavesEffect>Add new package</button>
-        <hr class="hr-light mb-3 mt-4">
-      </div>
+    </div>

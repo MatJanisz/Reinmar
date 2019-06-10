@@ -17,7 +17,8 @@ export class RegistrationComponent implements OnInit {
   registrationSuccess = false;
 
   register(name: string, surname: string, email: string, password: string){
-    
+    this.registrationSuccess = false;
+    this.registrationFailed = false;
     this.registrationService.register({name, surname, email, password}).subscribe( res => {
       this.registrationSuccess = true;
     },

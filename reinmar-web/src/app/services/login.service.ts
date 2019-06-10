@@ -3,7 +3,7 @@ import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../redux/app.store';
 import { SETUSER } from '../redux/users.actions';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { User } from '../model/user';
@@ -24,6 +24,7 @@ export class LoginService {
     }
 
     logIn(data: { email: string, password: string }) {
+
         return this.http.post(this.baseUrl, data)
             .pipe(tap<{name: string, token: string}>(result => {
                 this.token = result.token;

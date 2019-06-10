@@ -1,4 +1,4 @@
-<header class="intro-header">
+<header class="intro-header" >
     <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <mdb-navbar-brand>
             <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>REINMAR</strong></a>
@@ -11,6 +11,9 @@
             <li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link" href="add-package"> Add package </a>
             </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+                    <a class="nav-link" href="package-history"> Your packages</a>
+                </li>
 
         </ul>
         <ul class="navbar-nav">
@@ -46,7 +49,7 @@
 <div class="container flex-center">
     <div class="d-flex align-items-center content-height w-100">
         <div class="row flex-center  w-100">
-            <div class="col-md-6 text-center mb-5" style="margin-top: 5%">
+            <div class="col-md-10 text-center mb-5" style="margin-top: 5%">
                 <router-outlet></router-outlet>
             </div>
         </div>

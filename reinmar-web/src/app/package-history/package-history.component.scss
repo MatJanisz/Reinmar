@@ -1,19 +1,30 @@
+.header-custom {
+    margin: 20px;
+}
+
+.button-tracking {
+    display: flex;
+    margin-left: 13rem;
+    margin-right: 13rem;
+    margin-top: 2rem;
+}
+
+
 .intro-header {
     height: unset !important;
   }
   .intro-2 {
-    background:  linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ),url("assets/city.jpg")no-repeat center center;
+    background:  linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ),url("https://bestcellphonespyapps.com/wp-content/uploads/2018/07/shutterstock_525154717.jpg")no-repeat center center;
     background-size: cover;
   }
   .view {
     height: 100vh !important;
   }
-  .navbar.top-nav-collapse {
-    background-color: #343a40;
+  .top-nav-collapse {
+    background-color: #3f51b5 !important;
   }
-
   .navbar:not(.top-nav-collapse) {
-    background-color: black;
+    background: transparent !important;
   }
   @media (max-width: 768px) {
     .navbar:not(.top-nav-collapse) {
@@ -26,7 +37,6 @@
   .card {
     background-color: rgba(26, 26, 36, 0.479);
   }
-
   
   .md-form .prefix {
     font-size: 1.5rem;
