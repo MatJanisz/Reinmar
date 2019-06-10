@@ -14,25 +14,23 @@ export class PackageService {
 
     constructor(public http: HttpClient) { }
 
-    getSessionToken(){
-        return JSON.parse(localStorage.getItem('currentUser')).token;
-    }
-
 
     trackPackage(sitId: string): Observable<Package> {
 
+        const token = JSON.parse(localStorage.getItem('currentUser')).token;
         const httpOptions = { headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': `Bearer ` + this.getSessionToken()
+            'Authorization': `Bearer ` + token
           })}
 
         return this.http.post<Package>(this.baseUrl + sitId, httpOptions);
     }
 
     addPackage(newPackage: Package) {
+        const token = JSON.parse(localStorage.getItem('currentUser')).token;
         const httpOptions = { headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': `Bearer ` + this.getSessionToken()
+            'Authorization': `Bearer ` + token
           })}
 
           console.log(httpOptions)
@@ -40,9 +38,10 @@ export class PackageService {
     }
 
     getPackageHistory(): Observable<Package[]>{
+        const token = JSON.parse(localStorage.getItem('currentUser')).token;
         const httpOptions = { headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': `Bearer ` + this.getSessionToken()
+            'Authorization': `Bearer ` + token
           })}
 
           console.log(httpOptions)

@@ -49,6 +49,7 @@ export class WaybillHeaderFormComponent implements OnChanges {
   }
   
   onPackageAdd(){
+    console.log(this.editForm)
     this.packageToAdd.emit({
       receiverFullName: this.editForm.controls["receiverFullName"].value,
       phoneNumber: this.editForm.controls["phoneNumber"].value,

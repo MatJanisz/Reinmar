@@ -3,7 +3,7 @@
     <div class="container center">
         <div class="align-items-center content-height ">
 
-                <form [formGroup]="editForm" (ngSubmit)="onPackageAdd()">
+                <form [formGroup]="editForm" >
                         <div class="row" >
                 <div class="col-md-5 text-center text-md-left">
                     <div class="md-form">
@@ -67,7 +67,7 @@
             </form>
 
         <div class="text-center">
-                <button  mdbBtn color="indigo" class="waves-light" type="submit" [disabled]="!editForm.valid" mdbWavesEffect>Add new package</button>
+                <button  mdbBtn color="indigo" class="waves-light" (click)="onPackageAdd()" [disabled]="!editForm.valid" mdbWavesEffect>Add new package</button>
               
               </div>
     </div>

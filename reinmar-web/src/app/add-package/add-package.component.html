@@ -6,7 +6,7 @@
 
 <div class="ui form">
     <div class="ui segment">
-        <app-add-package-form [waitIsEmpty]="waitIsEmpty" [addInprogress]="loadingSuccess" (packageToAdd)="addPackage($event)"></app-add-package-form>
+        <app-add-package-form (packageToAdd)="addPackage($event)"></app-add-package-form>
         <!-- <ngx-snackbar class="message-add" [position]="'top-right'" [max]="3"></ngx-snackbar> -->
     </div>
 

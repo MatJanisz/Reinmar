@@ -57,8 +57,6 @@ import { PackageHistoryComponent } from './package-history/package-history.compo
     HttpClientModule,
     
     MDBBootstrapModule.forRoot(),
-    // ClipboardModule,
-    // SnackbarModule.forRoot(),
     StoreModule.forRoot(
       {app: userReducer}
     ),

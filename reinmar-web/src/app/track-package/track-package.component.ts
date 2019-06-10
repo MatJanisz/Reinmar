@@ -42,7 +42,7 @@ export class TrackPackageComponent implements OnInit {
         location: pack[0].status[lenghtOfStatus].location,
         event: pack[0].status[lenghtOfStatus].event,
         notes: pack.notes,
-        date: pack[0].Status[lenghtOfStatus].dateFrom
+        date: pack[0].status[lenghtOfStatus].date
       }
       this.showDetails = true;
     });
