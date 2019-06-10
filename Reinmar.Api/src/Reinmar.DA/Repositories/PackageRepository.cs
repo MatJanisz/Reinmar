@@ -20,12 +20,30 @@ namespace Reinmar.DA.Repositories
 			_emailHelper = emailHelper;
 			_context.Database.EnsureCreated();
 		}
-		public void Add(Package package, string senderEmail)
+		public string Add(Package package, string senderEmail)
 		{
+			Random random = new Random();
+			const string chars = "012345678912789";
+			string sitId;
+			bool isIdPresent = false;
+			do
+			{
+				sitId = new string(Enumerable.Repeat(chars, chars.Length)
+					.Select(s => s[random.Next(s.Length)]).ToArray());
+				var existingPackage = _context.Packages.SingleOrDefault(x => x.SitId == sitId);
+				if (existingPackage != null)
+				{
+					isIdPresent = true;
+				}
+			}
+			while (isIdPresent);
+
 			var sender = _context.Users.Single(s => s.Email == senderEmail);
 			package.SenderId = sender.Id;
+			package.SitId = sitId;
 			_context.Packages.Add(package);
 			_context.SaveChanges();
+			return sitId;
 		}
 
 		public IEnumerable<Package> GetAll()

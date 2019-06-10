@@ -25,12 +25,11 @@ namespace Reinmar.Api.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Add([FromBody] Package package)
+		public string Add([FromBody] Package package)
         {
 			var currentUser = HttpContext.User;
 			var email = currentUser.Claims.First(c => c.Type == ClaimTypes.Email).Value;
-			_packageService.Add(package, email);
-			return Ok();
+			return _packageService.Add(package, email);
         }
 
 		[HttpGet]

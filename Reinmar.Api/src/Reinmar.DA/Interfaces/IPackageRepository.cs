@@ -7,7 +7,7 @@ namespace Reinmar.DA.Interfaces
 {
 	public interface IPackageRepository
 	{
-		void Add(Package package, string senderEmail);
+		string Add(Package package, string senderEmail);
 		IEnumerable<Package> GetAll();
 		Package GetBySidId(string sitId);
 		void ChangeStatus(string sitId, Status status);

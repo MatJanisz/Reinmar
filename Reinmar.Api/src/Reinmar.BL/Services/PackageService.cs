@@ -14,9 +14,9 @@ namespace Reinmar.BL.Services
 		{
 			_packageRepository = packageRepository;
 		}
-		public void Add(Package package, string emailSender)
+		public string Add(Package package, string emailSender)
 		{
-			_packageRepository.Add(package, emailSender);
+			return _packageRepository.Add(package, emailSender);
 		}
 		public IEnumerable<Package> GetAll()
 		{
