@@ -12,8 +12,8 @@ import { Package } from '../model/package';
 export class AddPackageComponent {
 
 
-  loadingSuccess: boolean = false;
-  actualSitID: number;
+  addedSuccessfully: boolean = false;
+  actualSitID: string;
 
   canAdd: boolean = true;
   package: Package;
@@ -25,6 +25,8 @@ export class AddPackageComponent {
   addPackage(event: Package) {
 
     this._packageServie.addPackage(event).subscribe( res => {
+      this.addedSuccessfully = true;
+      this.actualSitID = res;
       console.log(res);
     })
 

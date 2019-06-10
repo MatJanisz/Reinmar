@@ -1,12 +1,12 @@
 <h2  class="h1 h1-responsive font-bold wow fadeInLeft header-custom" >Add new package</h2>
-<div *ngIf="loadingSuccess" class="alert alert-success" role="alert">
+<div *ngIf="addedSuccessfully" class="alert alert-success" role="alert">
         Package was added successfully!
         <h2  class="h4 font-bold " >Your package id: {{actualSitID}}</h2>
       </div>
 
 <div class="ui form">
     <div class="ui segment">
-        <app-add-package-form (packageToAdd)="addPackage($event)"></app-add-package-form>
+        <app-add-package-form  [success]="addedSuccessfully" (packageToAdd)="addPackage($event)"></app-add-package-form>
         <!-- <ngx-snackbar class="message-add" [position]="'top-right'" [max]="3"></ngx-snackbar> -->
     </div>
 

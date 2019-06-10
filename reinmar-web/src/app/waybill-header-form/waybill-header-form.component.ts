@@ -11,13 +11,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class WaybillHeaderFormComponent implements OnChanges {
 
 
-  @Input() addInprogress: boolean;
+  @Input() success: boolean = false;
 
   @Output() packageToAdd: EventEmitter<Package> = new EventEmitter();
   package: Package;
 
-  @Input() waitIsEmpty = {
-  };
 
   @ViewChild("input1") idInput: ElementRef;
 

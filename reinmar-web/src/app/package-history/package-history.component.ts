@@ -22,8 +22,9 @@ export class PackageHistoryComponent implements OnInit {
       return res.map( myPackage => {
         let statusIndex = myPackage.statuses.length -1
         return {
-          location: myPackage.statuses[statusIndex].location,
-          status: myPackage.statuses[statusIndex].event,
+          sitId: myPackage.sitId,
+          orderName: myPackage.orderName,
+          receiverFullName: myPackage.receiverFullName,
           date: new Date(myPackage.statuses[statusIndex].date),
           address: myPackage.streetName + " " + myPackage.houseNumber + ", " + myPackage.postalCode + ", " + myPackage.city,
           notes: myPackage.notes

@@ -23,10 +23,10 @@ export class PackageService {
             'Authorization': `Bearer ` + token
           })}
 
-        return this.http.post<Package>(this.baseUrl + sitId, httpOptions);
+        return this.http.get<Package>(this.baseUrl + 'GetBySitId/' + sitId, httpOptions);
     }
 
-    addPackage(newPackage: Package) {
+    addPackage(newPackage: Package): Observable<string> {
         const token = JSON.parse(localStorage.getItem('currentUser')).token;
         const httpOptions = { headers: new HttpHeaders({
             'Content-Type':  'application/json',
@@ -34,7 +34,7 @@ export class PackageService {
           })}
 
           console.log(httpOptions)
-        return this.http.post<Package>(this.baseUrl, newPackage, httpOptions);
+        return this.http.post<string>(this.baseUrl, newPackage, httpOptions);
     }
 
     getPackageHistory(): Observable<Package[]>{

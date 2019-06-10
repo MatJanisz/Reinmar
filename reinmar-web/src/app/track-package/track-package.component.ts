@@ -39,10 +39,10 @@ export class TrackPackageComponent implements OnInit {
     this._packagesService.trackPackage(sitId).subscribe((pack)=>{
       let lenghtOfStatus = pack.statuses.length -1;
       this.packageinformation = {
-        location: pack[0].status[lenghtOfStatus].location,
-        event: pack[0].status[lenghtOfStatus].event,
+        location: pack.statuses[lenghtOfStatus].location,
+        event: pack.statuses[lenghtOfStatus].event,
         notes: pack.notes,
-        date: pack[0].status[lenghtOfStatus].date
+        date: pack.statuses[lenghtOfStatus].date
       }
       this.showDetails = true;
     });

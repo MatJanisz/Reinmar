@@ -1,6 +1,6 @@
 export interface PackageHistory{
-    location: string,
-    status: string,
+    orderName: string,
+    receiverFullName: string,
     date: Date,
     address: string,
     notes: string
