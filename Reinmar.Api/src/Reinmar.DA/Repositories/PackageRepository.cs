@@ -43,6 +43,8 @@ namespace Reinmar.DA.Repositories
 			package.SitId = sitId;
 			_context.Packages.Add(package);
 			_context.SaveChanges();
+			_emailHelper.SendEmail(package.ReceiverEmail, package, "", "addReceiver");
+			_emailHelper.SendEmail(senderEmail, package, "", "addSender");
 			return sitId;
 		}
 
@@ -62,7 +64,17 @@ namespace Reinmar.DA.Repositories
 			var newStatus = new Status(status.Location, status.Event);
 			package.Statuses.Add(newStatus);
 			_context.SaveChanges();
-			_emailHelper.SendEmail(package.ReceiverEmail, package.OrderName, status.Event + ", " + status.Location);
+			var sender = _context.Users.Single(x => x.Id == package.SenderId);
+			if (status.Event.ToLower() == "delivered")
+			{
+				_emailHelper.SendEmail(package.ReceiverEmail, package, status.Event + ", " + status.Location, "finalReceiver");
+				_emailHelper.SendEmail(sender.Email, package, status.Event + ", " + status.Location, "finalSender");
+			}
+			else
+			{
+				_emailHelper.SendEmail(package.ReceiverEmail, package, status.Event + ", " + status.Location, "");
+				_emailHelper.SendEmail(sender.Email, package, status.Event + ", " + status.Location, "");
+			}
 		}
 
 		public Status GetLatestStatus(string sitId)
