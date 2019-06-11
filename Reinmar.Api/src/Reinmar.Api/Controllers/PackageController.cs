@@ -59,9 +59,11 @@ namespace Reinmar.Api.Controllers
 		}
 
 		[HttpGet("GetMyPackages")]
-		public IEnumerable<Package> GetMyPackages(string senderEmail)
+		public IEnumerable<Package> GetMyPackages()
 		{
-			return _packageService.GetMyPackages(senderEmail);
+			var currentUser = HttpContext.User;
+			var email = currentUser.Claims.First(c => c.Type == ClaimTypes.Email).Value;
+			return _packageService.GetMyPackages(email);
 		}
 	}
 }
