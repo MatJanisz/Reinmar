@@ -37,5 +37,9 @@ namespace Reinmar.BL.Services
 		{
 			return _packageRepository.GetLatestStatus(sitId);
 		}
+		public IEnumerable<Package> GetMyPackages(string senderEmail)
+		{
+			return _packageRepository.GetMyPackages(senderEmail);
+		}
 	}
 }
