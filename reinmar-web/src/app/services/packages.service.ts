@@ -45,7 +45,7 @@ export class PackageService {
           })}
 
           console.log(httpOptions)
-        return this.http.get<Package[]>(this.baseUrl, httpOptions);
+        return this.http.get<Package[]>(this.baseUrl + "GetMyPackages", httpOptions);
     }
 
 }
