@@ -57,5 +57,11 @@ namespace Reinmar.Api.Controllers
 		{
 			return _packageService.GetLatestStatus(sitId);
 		}
+
+		[HttpGet("GetMyPackages")]
+		public IEnumerable<Package> GetMyPackages(string senderEmail)
+		{
+			return _packageService.GetMyPackages(senderEmail);
+		}
 	}
 }

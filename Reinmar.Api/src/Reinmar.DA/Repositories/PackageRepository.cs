@@ -82,5 +82,11 @@ namespace Reinmar.DA.Repositories
 			var package = _context.Packages.Include(s => s.Statuses).SingleOrDefault(s => s.SitId == sitId);
 			return package.Statuses.OrderByDescending(d => d.Date).FirstOrDefault();
 		}
+
+		public IEnumerable<Package> GetMyPackages(string senderEmail)
+		{
+			var sender = _context.Users.Single(s => s.Email == senderEmail);
+			return _context.Packages.Include(s => s.Statuses).Where(x => x.SenderId == sender.Id).ToList();
+		}
 	}
 }

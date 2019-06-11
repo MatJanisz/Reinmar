@@ -12,5 +12,6 @@ namespace Reinmar.DA.Interfaces
 		Package GetBySidId(string sitId);
 		void ChangeStatus(string sitId, Status status);
 		Status GetLatestStatus(string sitId);
+		IEnumerable<Package> GetMyPackages(string senderEmail);
 	}
 }

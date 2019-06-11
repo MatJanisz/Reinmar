@@ -83,7 +83,7 @@ namespace Reinmar.DA.Helpers
 				IsBodyHtml = true,
 			})
 
-			try { smtp.Send(message); }
+			try { smtp.SendMailAsync(message); }
 				catch { }
 		}
 	}
