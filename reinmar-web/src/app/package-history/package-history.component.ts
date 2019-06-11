@@ -18,9 +18,11 @@ export class PackageHistoryComponent implements OnInit {
 
   ngOnInit() {
     this._packageService.getPackageHistory().
-    pipe(map( res=> {
+    pipe(
+      
+      map( res=> {
       return res.map( myPackage => {
-        let statusIndex = myPackage.statuses.length -1
+        let statusIndex = myPackage.statuses.length -1;
         return {
           sitId: myPackage.sitId,
           orderName: myPackage.orderName,

@@ -31,7 +31,9 @@
     <p style="font-size: small; color: rgb(250, 128, 128); text-align: center" *ngIf="registrationFailed">Something went wrong or user already exist</p>
 
 
-
+    <div *ngIf="registrationSuccess" class="alert alert-success" role="alert">
+        Your account was created successfully!
+      </div>
 
     <div class="text-center">
       <button mdbBtn color="indigo" class="waves-light" (click)="register(name.value, surname.value, email.value, password.value)" mdbWavesEffect>Register</button>
