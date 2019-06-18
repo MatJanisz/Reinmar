@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Reinmar" 
+             x:Class="Reinmar.ReinmarPage"
+             BackgroundImage="tlo.jpg">
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="AUTO"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="reinmarlogo.png" HorizontalOptions="Start" HeightRequest="70"
+                 WidthRequest="90" VerticalOptions="Start"/>
+        
+        <StackLayout Grid.Row="1" >
+            <Label Text="Welcome to Reinmar!" TextColor="Black" FontSize="35" 
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="10,15,10,80" />
+        </StackLayout>
+
+        <Button Text="Let's start!" Grid.Row="2" TextColor="White" BackgroundColor="Black" 
+                FontSize="15" FontAttributes="Bold" HeightRequest="35" WidthRequest="10" 
+                BorderRadius="20" Margin="10,20" Clicked="ButtonClicked"/>
+
+        <StackLayout Grid.Row="4" >
+            <Label Text="Made with love by the Reinmar team" 
+                   TextColor="Black" FontSize="10" HorizontalTextAlignment="Center"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="10,10"/>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

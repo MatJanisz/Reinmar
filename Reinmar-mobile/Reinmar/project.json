@@ -1,0 +1,13 @@
+﻿{
+  "dependencies": {
+    "Autofac": "4.0.0",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "2.0.1",
+    "Newtonsoft.Json": "11.0.2",
+    "Reinmar.Common": "1.0.0-Mobile",
+    "Xamarin.Forms": "3.0.0.482510"
+  },
+  "frameworks": {
+    "netstandard1.5": {}
+  }
+}
